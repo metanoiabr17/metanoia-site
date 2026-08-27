@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://metanoiabraila.ro/sitemap.xml
