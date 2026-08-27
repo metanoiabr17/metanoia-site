@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donează — Biserica Metanoia Brăila</title>
+<meta name="description" content="Susține lucrarea Bisericii Metanoia Brăila.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="siteHeader" class="on-dark">
+  <nav class="wrap">
+    <div class="brand">
+      <a href="index.html"><img src="assets/logo-horizontal.png" alt="Biserica Metanoia Brăila"></a>
+      <span class="mono place">Biserică Creștină<br>Evanghelică</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="cine-suntem.html">Cine suntem</a>
+      <a href="ce-credem.html">Ce credem</a>
+      <a href="ce-facem.html">Ce facem</a>
+      <a href="resurse.html">Resurse</a>
+      <a href="pasii.html">Pașii următori</a>
+      <a href="contact.html">Contact</a>
+      <a href="doneaza.html" class="btn solid">Donează</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul">☰</button>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <img class="mark" src="assets/logo-mark.png" alt="">
+  <div class="wrap">
+    <div class="eyebrow mono"><span class="line"></span>Susține lucrarea</div>
+    <h1>Donează</h1>
+    <p class="lead">Fiecare dar susține direct lucrarea de facere de ucenici a bisericii noastre — de la programul pentru copii, până la extinderea Împărăției lui Dumnezeu în Brăila și dincolo de ea.</p>
+  </div>
+</section>
+<div class="horizon"></div>
+<section class="cta">
+  <div class="wrap cta-grid">
+    <div class="reveal">
+      <h2>Scrie-ne pentru detalii</h2>
+      <p>Pentru detaliile contului bancar al bisericii sau pentru orice altă modalitate de a contribui, te rugăm să ne scrii direct — îți răspundem cu plăcere.</p>
+      <div class="cta-actions">
+        <a href="mailto:metanoiabraila@gmail.com" class="btn solid">metanoiabraila@gmail.com</a>
+        <a href="contact.html" class="btn">Vezi pagina de contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img src="assets/logo-square.png" alt="Biserica Metanoia Brăila" class="footer-logo">
+    <span>© Biserica Metanoia Brăila — Glorificăm pe Dumnezeu prin facerea de ucenici, Matei 28:18–20</span>
+    <span class="mono">str. Industriei nr. 17, Brăila</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

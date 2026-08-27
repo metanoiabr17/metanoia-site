@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ce facem — Biserica Metanoia Brăila</title>
+<meta name="description" content="Misiunea Bisericii Harvest Metanoia Brăila: facerea de ucenici, prin relația cu Isus, cu alți credincioși și cu lumea.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="siteHeader" class="on-dark">
+  <nav class="wrap">
+    <div class="brand">
+      <a href="index.html"><img src="assets/logo-horizontal.png" alt="Biserica Metanoia Brăila"></a>
+      <span class="mono place">Biserică Creștină<br>Evanghelică</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="cine-suntem.html">Cine suntem</a>
+      <a href="ce-credem.html">Ce credem</a>
+      <a href="ce-facem.html" class="active">Ce facem</a>
+      <a href="resurse.html">Resurse</a>
+      <a href="pasii.html">Pașii următori</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#program">Duminica</a>
+      <a href="doneaza.html" class="btn solid">Donează</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul">☰</button>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <img class="mark" src="assets/logo-mark.png" alt="">
+  <div class="wrap">
+    <div class="eyebrow mono"><span class="line"></span>Cunoaște-ne</div>
+    <h1>Ce facem</h1>
+    <p class="lead">Misiunea noastră este glorificarea lui Dumnezeu prin împlinirea Marii Trimiteri a Domnului Isus Cristos — facerea de ucenici.</p>
+  </div>
+</section>
+<div class="horizon"></div>
+<section class="section on-ink">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="mono">Matei 28:19–20</span>
+      <h2>Cum arată un ucenic autentic al lui Isus?</h2>
+      <p>La Harvest Metanoia definim ucenicia în contextul a trei relații importante.</p>
+    </div>
+    <div class="rel-grid reveal">
+      <div class="rel-card">
+        <span class="roman">I.</span>
+        <h3>Relația cu Isus</h3>
+        <span class="verse-ref mono">Ioan 15:1–11</span>
+        <p style="color:var(--slate); font-size:0.9rem; margin-bottom:14px;">Ucenicul își extrage viața din Isus.</p>
+        <ul>
+          <li>Îl admiră pe Isus</li>
+          <li>Ascultă Cuvântul lui Isus</li>
+          <li>Vorbește cu Isus</li>
+          <li>Împlinește voia lui Isus</li>
+        </ul>
+      </div>
+      <div class="rel-card">
+        <span class="roman">II.</span>
+        <h3>Relația cu alți credincioși</h3>
+        <span class="verse-ref mono">Ioan 13:34–35</span>
+        <p style="color:var(--slate); font-size:0.9rem; margin-bottom:14px;">Ucenicul iubește comunitatea lui Isus.</p>
+        <ul>
+          <li>Slujește</li>
+          <li>Iartă</li>
+          <li>Contribuie cu darurile sale</li>
+        </ul>
+      </div>
+      <div class="rel-card">
+        <span class="roman">III.</span>
+        <h3>Relația cu lumea</h3>
+        <span class="verse-ref mono">Matei 5:13–16</span>
+        <p style="color:var(--slate); font-size:0.9rem; margin-bottom:14px;">Ucenicul manifestă viața lui Isus.</p>
+        <ul>
+          <li>Proclamă mesajul lui Isus</li>
+          <li>Arată dragostea lui Isus</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta">
+  <div class="wrap cta-grid">
+    <div class="reveal">
+      <h2>Vrei să faci primul pas?</h2>
+      <p>Dacă ești nou la Metanoia sau te gândești să te implici mai mult, avem trei pași simpli care te ajută să te integrezi în comunitate.</p>
+      <div class="cta-actions">
+        <a href="pasii.html" class="btn solid">Vezi pașii următori</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img src="assets/logo-square.png" alt="Biserica Metanoia Brăila" class="footer-logo">
+    <span>© Biserica Metanoia Brăila — Glorificăm pe Dumnezeu prin facerea de ucenici, Matei 28:18–20</span>
+    <span class="mono">str. Industriei nr. 17, Brăila</span>
+  </div>
+</footer>
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

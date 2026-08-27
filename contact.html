@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Biserica Metanoia Brăila</title>
+<meta name="description" content="Contactează Biserica Metanoia Brăila: str. Industriei nr. 17, Brăila. Duminică, 10:00–12:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="siteHeader" class="on-light">
+  <nav class="wrap">
+    <div class="brand">
+      <a href="index.html"><img src="assets/logo-horizontal.png" alt="Biserica Metanoia Brăila"></a>
+      <span class="mono place">Biserică Creștină<br>Evanghelică</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="cine-suntem.html">Cine suntem</a>
+      <a href="ce-credem.html">Ce credem</a>
+      <a href="ce-facem.html">Ce facem</a>
+      <a href="resurse.html">Resurse</a>
+      <a href="pasii.html">Pașii următori</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="index.html#program">Duminica</a>
+      <a href="doneaza.html" class="btn solid">Donează</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul">☰</button>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <img class="mark" src="assets/logo-mark.png" alt="">
+  <div class="wrap">
+    <div class="eyebrow mono"><span class="line"></span>Contactează-ne</div>
+    <h1>Vino și tu</h1>
+    <p class="lead">Suntem aici duminică de duminică. Vino așa cum ești.</p>
+  </div>
+</section>
+<div class="horizon"></div>
+<section class="section on-paper" style="padding-top:90px;">
+  <div class="wrap contact-grid">
+    <div class="info-card reveal">
+      <span class="mono">Detalii</span>
+      <div class="row"><span>Biserică</span><span>Harvest Metanoia Brăila</span></div>
+      <div class="row"><span>Adresă</span><span>Str. Industriei nr. 17, Brăila</span></div>
+      <div class="row"><span>Program</span><span>Duminică, 10:00–12:00</span></div>
+      <div class="row"><span>Email</span><span><a href="mailto:metanoiabraila@gmail.com">metanoiabraila@gmail.com</a></span></div>
+      <div class="row"><span>Facebook</span><span><a href="https://www.facebook.com/metanoiabraila/" target="_blank" rel="noopener">metanoiabraila</a></span></div>
+    </div>
+    <div class="map-frame reveal">
+      <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=Strada+Industriei+17+braila&zoom=15" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Harta Biserica Metanoia Brăila"></iframe>
+    </div>
+  </div>
+</section>
+<section class="cta" style="padding-top:40px;">
+  <div class="wrap cta-grid">
+    <div class="reveal">
+      <h2>Scrie-ne direct</h2>
+      <p>Cel mai simplu mod de a ne contacta este pe email — răspundem cât de repede putem.</p>
+      <div class="cta-actions">
+        <a href="mailto:metanoiabraila@gmail.com" class="btn solid">metanoiabraila@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img src="assets/logo-square.png" alt="Biserica Metanoia Brăila" class="footer-logo">
+    <span>© Biserica Metanoia Brăila — Glorificăm pe Dumnezeu prin facerea de ucenici, Matei 28:18–20</span>
+    <span class="mono">str. Industriei nr. 17, Brăila</span>
+  </div>
+</footer>
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
