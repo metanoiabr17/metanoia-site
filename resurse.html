@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resurse — Biserica Metanoia Brăila</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0D1A29">
+<meta name="description" content="Predici, arhivă și articole de la Biserica Metanoia Brăila.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .res-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .res-card{ background:rgba(13,26,41,0.35); border:1px solid rgba(246,241,231,0.12); padding:32px; display:flex; flex-direction:column; }
+  .res-card .mono{ color:var(--gold-light); }
+  .res-card h3{ color:var(--paper); font-size:1.2rem; margin:14px 0 10px; }
+  .res-card p{ color:var(--slate); font-size:0.92rem; line-height:1.65; flex:1; }
+  .res-card a.go{ display:inline-block; margin-top:18px; font-size:0.82rem; color:var(--gold-light); font-weight:600; border-bottom:1px solid var(--gold-light); }
+  @media (max-width:860px){ .res-grid{ grid-template-columns:1fr; } }
+  .article-teaser{ background:rgba(248,243,231,0.85); border:1px solid rgba(28,36,48,0.1); padding:36px; border-radius:var(--radius); max-width:760px; }
+  .article-teaser .mono{ color:var(--gold-deep); }
+  .article-teaser h3{ color:var(--ink-text); font-size:1.5rem; margin:14px 0 12px; }
+  .article-teaser p{ color:#5A5142; font-size:0.96rem; line-height:1.75; margin-bottom:14px; }
+  .article-teaser cite{ display:block; font-style:italic; color:#8A5A22; margin-top:10px; }
+</style>
+</head>
+<body>
+<header id="siteHeader" class="on-dark">
+  <nav class="wrap">
+    <div class="brand">
+      <a href="index.html"><img src="assets/logo-horizontal.png" alt="Biserica Metanoia Brăila"></a>
+      <span class="mono place">Biserică Creștină<br>Evanghelică</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="cine-suntem.html">Cine suntem</a>
+      <a href="ce-credem.html">Ce credem</a>
+      <a href="ce-facem.html">Ce facem</a>
+      <a href="resurse.html" class="active">Resurse</a>
+      <a href="pasii.html">Pașii următori</a>
+      <a href="contact.html">Contact</a>
+      <a href="doneaza.html" class="btn solid">Donează</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul">☰</button>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <img class="mark" src="assets/logo-mark.png" alt="">
+  <div class="wrap">
+    <div class="eyebrow mono"><span class="line"></span>Resurse</div>
+    <h1>Predici și articole</h1>
+    <p class="lead">Ultima predică, arhiva completă și articole scrise de comunitatea Metanoia — pentru a merge mai adânc în Cuvânt, oricând vrei.</p>
+  </div>
+</section>
+<div class="horizon"></div>
+
+<section class="section on-ink">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="mono">Predici</span>
+      <h2>Ascultă sau urmărește</h2>
+    </div>
+    <div class="res-grid reveal">
+      <div class="res-card">
+        <span class="mono">Ultima predică</span>
+        <h3>Iată-mă, trimite-mă!</h3>
+        <p>Isaia 6:1–13 — o predică despre chemarea lui Dumnezeu și răspunsul nostru la sfințenia Lui.</p>
+        <a class="go" href="https://harvestmetanoiabraila.ro/predici/iata-ma-trimite-ma/" target="_blank" rel="noopener">Urmărește predica →</a>
+      </div>
+      <div class="res-card">
+        <span class="mono">Arhivă</span>
+        <h3>Toate predicile</h3>
+        <p>Arhiva completă a predicilor de duminică, organizată cronologic, disponibilă oricând vrei să asculți din nou un mesaj.</p>
+        <a class="go" href="https://harvestmetanoiabraila.ro/predici/" target="_blank" rel="noopener">Vezi arhiva →</a>
+      </div>
+      <div class="res-card">
+        <span class="mono">Video</span>
+        <h3>Canalul YouTube</h3>
+        <p>Predicile și înregistrările video ale bisericii, disponibile și pe YouTube.</p>
+        <a class="go" href="https://www.youtube.com/@bisericametanoiabraila" target="_blank" rel="noopener">Deschide YouTube →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section on-dawn">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="mono">Articole</span>
+      <h2>Cea mai bună veste</h2>
+    </div>
+    <div class="article-teaser reveal">
+      <span class="mono">Evanghelia</span>
+      <h3>Cea mai bună veste</h3>
+      <p>Evanghelia este vestea care spune cum Isus Cristos, Cel Neprihănit, a murit pentru păcatele noastre și a înviat, triumfător pentru veșnicie peste toți dușmanii Săi — așa că acum nu mai este nicio condamnare pentru cei ce cred, ci doar bucurie veșnică.</p>
+      <cite>— John Piper</cite>
+      <a class="go" style="color:var(--gold-deep); border-color:var(--gold-deep);" href="https://mang7678287.brizy.site/cea-mai-buna-veste-metanoia-braila" target="_blank" rel="noopener">Citește articolul complet →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap cta-grid">
+    <div class="reveal">
+      <h2>Vrei să afli mai multe?</h2>
+      <p>Dacă un mesaj sau un articol te-a atins într-un fel anume, ne-ar plăcea să vorbim despre asta.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn solid">Contactează-ne</a>
+        <a href="index.html#program" class="btn">Vezi programul duminicii</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <img src="assets/logo-square.png" alt="Biserica Metanoia Brăila" class="footer-logo">
+    <span>© Biserica Metanoia Brăila — Glorificăm pe Dumnezeu prin facerea de ucenici, Matei 28:18–20</span>
+    <span class="mono">str. Industriei nr. 17, Brăila</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
