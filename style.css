@@ -157,6 +157,10 @@ header.on-light .btn{ border-color:#C98A3B; color:#8A5A22; }
 .pillar .ref{ display:block; margin-top:16px; color:var(--gold-light); }
 @media (max-width:900px){ .pillar-grid{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:520px){ .pillar-grid{ grid-template-columns:1fr; } }
+.pillar-grid--six{ grid-template-columns:repeat(3,1fr); }
+@media (max-width:900px){ .pillar-grid--six{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .pillar-grid--six{ grid-template-columns:1fr; } }
+.pillar .icon{ height:44px; width:auto; margin-bottom:18px; opacity:0.92; }
 
 /* ===== RELATIONSHIPS (Ce facem) ===== */
 .rel-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
