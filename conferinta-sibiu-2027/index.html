@@ -378,28 +378,28 @@ footer .wrap{padding-block:48px 32px;display:grid;gap:28px}
           </ul>
         </div>
         <div>
-          <form class="reg" id="regForm" novalidate>
-            <div class="field"><label for="fName">Nume complet</label><input id="fName" name="nume" autocomplete="name"></div>
+          <form class="reg" id="regForm" action="https://formsubmit.co/info@gccollective.eu" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Înscriere nouă – Conferința prezbiterilor Sibiu 2027">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://metanoiabraila.ro/conferinta-sibiu-2027/?inscris=1#inscriere">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="field"><label for="fName">Nume complet</label><input id="fName" name="Nume complet" autocomplete="name"></div>
             <div class="two">
-              <div class="field"><label for="fChurch">Biserica / rețeaua</label><input id="fChurch" name="biserica"></div>
-              <div class="field"><label for="fRole">Funcția în biserică</label><input id="fRole" name="functia" placeholder="ex. prezbiter, pastor"></div>
+              <div class="field"><label for="fChurch">Biserica / rețeaua</label><input id="fChurch" name="Biserica / rețeaua"></div>
+              <div class="field"><label for="fRole">Funcția în biserică</label><input id="fRole" name="Funcția în biserică" placeholder="ex. prezbiter, pastor"></div>
             </div>
             <div class="two">
               <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email"></div>
-              <div class="field"><label for="fPhone">Telefon</label><input id="fPhone" name="telefon" type="tel" autocomplete="tel"></div>
+              <div class="field"><label for="fPhone">Telefon</label><input id="fPhone" name="Telefon" type="tel" autocomplete="tel"></div>
             </div>
             <p class="err" id="regErr" hidden></p>
             <button class="btn btn-ink" type="submit">Trimite înscrierea</button>
           </form>
           <div class="done" id="regDone" hidden>
-            <h3>Mai ai un pas</h3>
-            <p id="doneMsg"></p>
-            <pre id="regText"></pre>
-            <div class="row">
-              <button class="btn btn-ink" type="button" id="copyBtn">Copiază datele</button>
-              <a class="btn btn-line" id="mailBtn" href="#" hidden>Deschide emailul</a>
-              <button class="btn btn-line" type="button" id="editBtn">Modifică</button>
-            </div>
+            <h3>Mulțumim, te-ai înscris!</h3>
+            <p>Am primit înscrierea ta. Organizatorii te vor contacta pe email.</p>
+            <div class="row"><button class="btn btn-line" type="button" id="againBtn">Înscrie încă o persoană</button></div>
           </div>
         </div>
       </div>
@@ -500,36 +500,19 @@ tabs.forEach((t,i) => {
   });
 });
 
-// registration
+// registration (FormSubmit)
 const form=$("regForm"), done=$("regDone"), err=$("regErr");
-const labels = {nume:"Nume complet", biserica:"Biserica / rețeaua", functia:"Funcția în biserică", email:"Email", telefon:"Telefon"};
+const req = ["Nume complet","Biserica / rețeaua","Funcția în biserică","email","Telefon"];
+const lbl = {email:"Email"};
 form.addEventListener("submit", e => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(form));
-  const missing = Object.keys(labels).filter(k => !String(data[k]||"").trim());
-  if (missing.length){ err.textContent = "Completează: " + missing.map(k=>labels[k]).join(", ") + "."; err.hidden=false; return; }
-  if (!/^\S+@\S+\.\S+$/.test(data.email)){ err.textContent = "Adresa de email nu pare corectă. Verifică și încearcă din nou."; err.hidden=false; return; }
+  const missing = req.filter(n => !String(form.elements[n].value||"").trim());
+  if (missing.length){ e.preventDefault(); err.textContent = "Completează: " + missing.map(n=>lbl[n]||n).join(", ") + "."; err.hidden=false; return; }
+  if (!/^\S+@\S+\.\S+$/.test(form.elements.email.value)){ e.preventDefault(); err.textContent = "Adresa de email nu pare corectă. Verifică și încearcă din nou."; err.hidden=false; return; }
   err.hidden = true;
-  const text = "Înscriere – Pluralități Sănătoase de Conducere, Sibiu 21–23 ianuarie 2027\n\n" + Object.keys(labels).map(k => labels[k]+": "+data[k].trim()).join("\n");
-  $("regText").textContent = text;
-  const mail = $("mailBtn");
-  if (INFO.email){
-    $("doneMsg").textContent = "Trimite datele de mai jos la " + INFO.email + ". Înscrierea e confirmată când organizatorii îți răspund.";
-    mail.href = "mailto:"+INFO.email+"?subject="+encodeURIComponent("Înscriere conferință Sibiu 2027")+"&body="+encodeURIComponent(text);
-    mail.hidden = false;
-  } else {
-    $("doneMsg").textContent = "Copiază datele de mai jos. Adresa la care le trimiți va fi publicată în curând în secțiunea Locație și contact.";
-    mail.hidden = true;
-  }
-  form.hidden = true; done.hidden = false;
+  const btn = form.querySelector('button[type="submit"]'); btn.textContent = "Se trimite…"; btn.disabled = true;
 });
-$("editBtn").addEventListener("click", () => { done.hidden = true; form.hidden = false; });
-$("copyBtn").addEventListener("click", e => {
-  const btn = e.currentTarget, text = $("regText").textContent;
-  const ok = () => { btn.textContent = "Copiat"; setTimeout(()=>btn.textContent="Copiază datele", 1800); };
-  const fallback = () => { const r=document.createRange(); r.selectNodeContents($("regText")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent="Selectat, apasă Ctrl+C"; };
-  try { navigator.clipboard.writeText(text).then(ok, fallback); } catch(_) { fallback(); }
-});
+if (new URLSearchParams(location.search).has("inscris")) { form.hidden = true; done.hidden = false; }
+$("againBtn").addEventListener("click", () => { history.replaceState(null,"",location.pathname+"#inscriere"); done.hidden = true; form.hidden = false; form.reset(); });
 </script>
 
 </body>
