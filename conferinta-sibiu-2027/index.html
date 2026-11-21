@@ -500,16 +500,27 @@ tabs.forEach((t,i) => {
   });
 });
 
-// registration (FormSubmit)
+// registration: FormSubmit (email) + Google Sheets (tabel)
+// Lipește aici adresa aplicației web Google Apps Script (se termină în /exec). Gol = doar email.
+const SHEET_URL = "";
 const form=$("regForm"), done=$("regDone"), err=$("regErr");
 const req = ["Nume complet","Biserica / rețeaua","Funcția în biserică","email","Telefon"];
 const lbl = {email:"Email"};
+let sent = false;
 form.addEventListener("submit", e => {
+  if (sent) return;
   const missing = req.filter(n => !String(form.elements[n].value||"").trim());
   if (missing.length){ e.preventDefault(); err.textContent = "Completează: " + missing.map(n=>lbl[n]||n).join(", ") + "."; err.hidden=false; return; }
   if (!/^\S+@\S+\.\S+$/.test(form.elements.email.value)){ e.preventDefault(); err.textContent = "Adresa de email nu pare corectă. Verifică și încearcă din nou."; err.hidden=false; return; }
   err.hidden = true;
   const btn = form.querySelector('button[type="submit"]'); btn.textContent = "Se trimite…"; btn.disabled = true;
+  if (!SHEET_URL) return;
+  e.preventDefault();
+  const body = new URLSearchParams();
+  for (const [k,v] of new FormData(form)) if (!k.startsWith("_") || k==="_honey") body.append(k, v);
+  const go = () => { if (sent) return; sent = true; form.submit(); };
+  fetch(SHEET_URL, {method:"POST", mode:"no-cors", body}).catch(()=>{}).finally(go);
+  setTimeout(go, 4000);
 });
 if (new URLSearchParams(location.search).has("inscris")) { form.hidden = true; done.hidden = false; }
 $("againBtn").addEventListener("click", () => { history.replaceState(null,"",location.pathname+"#inscriere"); done.hidden = true; form.hidden = false; form.reset(); });
