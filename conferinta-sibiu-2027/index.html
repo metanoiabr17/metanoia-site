@@ -522,6 +522,7 @@ form.addEventListener("submit", e => {
   fetch(SHEET_URL, {method:"POST", mode:"no-cors", body}).catch(()=>{}).finally(go);
   setTimeout(go, 4000);
 });
+form.elements._next.value = location.origin + location.pathname + "?inscris=1#inscriere";
 if (new URLSearchParams(location.search).has("inscris")) { form.hidden = true; done.hidden = false; }
 $("againBtn").addEventListener("click", () => { history.replaceState(null,"",location.pathname+"#inscriere"); done.hidden = true; form.hidden = false; form.reset(); });
 </script>
