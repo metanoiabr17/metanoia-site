@@ -200,6 +200,15 @@ form.reg,.done{background:var(--white);padding:clamp(24px,4vw,40px);display:grid
 .theme .sub{font-size:13px;font-weight:800;letter-spacing:.18em;color:rgba(225,223,211,.6);margin-top:16px;margin-bottom:-24px}
 .speaker .bio strong,.price li b{font-weight:800;color:inherit}
 .price li b{color:var(--cream)}
+.map{display:block;margin-top:36px;border:2px solid var(--ink);aspect-ratio:16/7;max-width:100%;background:var(--paper);overflow:hidden}
+@media (max-width:640px){.map{aspect-ratio:4/3.4}}
+.map iframe{display:block;width:100%;height:100%;border:0}
+.map-link{display:grid;place-items:center;text-decoration:none;color:var(--ink);background:repeating-linear-gradient(0deg,transparent 0 38px,rgba(44,37,31,.08) 38px 40px),repeating-linear-gradient(90deg,transparent 0 38px,rgba(44,37,31,.08) 38px 40px),var(--paper);text-align:center;padding:24px}
+.map-link span{display:grid;gap:6px}
+.map-link small{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.map-link b{font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:800}
+.map-link em{font-style:normal;font-weight:800;color:var(--orange-deep)}
+.map-link:hover em{text-decoration:underline}
 footer{background:var(--ink);color:var(--cream)}
 footer .wrap{padding-block:48px 32px;display:grid;gap:28px}
 .f-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
@@ -420,6 +429,7 @@ footer .wrap{padding-block:48px 32px;display:grid;gap:28px}
         <div><small>Locație</small><span class="val" id="cPlace"></span></div>
         <div><small>Email</small><span class="val" id="cEmail"></span></div>
       </div>
+      <div class="map"><iframe src="https://www.google.com/maps?q=Biserica+Deo+Gloria,+Fund%C4%83tura+L%C3%A2nii,+Sibiu&amp;hl=ro&amp;z=16&amp;output=embed" title="Harta: Biserica Deo Gloria, Fundătura Lânii, Sibiu" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
     </div>
   </section>
 </main>
@@ -454,6 +464,7 @@ footer .wrap{padding-block:48px 32px;display:grid;gap:28px}
 <script>
 // Date de completat de organizatori. Lasă "" pentru „Se anunță în curând”.
 const INFO = {
+  biserica: "Biserica Deo Gloria",
   locatie: "Biserica Deo Gloria, Fundătura Lânii, Sibiu",
   harta: "https://maps.app.goo.gl/sA6riYP7cDd8WhbR6",          // ex. "Hotel X, Str. Y nr. Z, Sibiu"
   email: "info@gccollective.eu",
@@ -465,7 +476,7 @@ const SOON = "Se anunță în curând";
 const $ = id => document.getElementById(id);
 function setVal(id, v){ const el=$(id); el.textContent = v || SOON; el.classList.toggle("pending", !v); }
 setVal("cEmail", INFO.email);
-if (INFO.locatie) $("heroPlace").textContent = INFO.locatie;
+if (INFO.biserica) $("heroPlace").textContent = INFO.biserica;
 const place = $("cPlace"), a = document.createElement("a");
 a.href = INFO.harta || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(INFO.locatie || "Sibiu");
 a.target = "_blank"; a.rel = "noopener"; a.textContent = (INFO.locatie || "Sibiu") + " ↗";
