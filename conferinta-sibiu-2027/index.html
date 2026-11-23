@@ -454,7 +454,8 @@ footer .wrap{padding-block:48px 32px;display:grid;gap:28px}
 <script>
 // Date de completat de organizatori. Lasă "" pentru „Se anunță în curând”.
 const INFO = {
-  locatie: "Biserica Deo Gloria, Fundătura Lânii, Sibiu",          // ex. "Hotel X, Str. Y nr. Z, Sibiu"
+  locatie: "Biserica Deo Gloria, Fundătura Lânii, Sibiu",
+  harta: "https://maps.app.goo.gl/sA6riYP7cDd8WhbR6",          // ex. "Hotel X, Str. Y nr. Z, Sibiu"
   email: "info@gccollective.eu",
   telefon: "",
   taxa: "",             // ex. "350 RON"
@@ -466,7 +467,7 @@ function setVal(id, v){ const el=$(id); el.textContent = v || SOON; el.classList
 setVal("cEmail", INFO.email);
 if (INFO.locatie) $("heroPlace").textContent = INFO.locatie;
 const place = $("cPlace"), a = document.createElement("a");
-a.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(INFO.locatie || "Sibiu");
+a.href = INFO.harta || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(INFO.locatie || "Sibiu");
 a.target = "_blank"; a.rel = "noopener"; a.textContent = (INFO.locatie || "Sibiu") + " ↗";
 place.appendChild(a);
 
