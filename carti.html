@@ -45,16 +45,18 @@ body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--font);fo
   padding-top:28px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 28px);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .foot-in{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-.foot .logo{color:var(--sand);height:26px}
+.foot .logo{color:var(--sand);height:26px;width:84px}
 .foot p{margin:0;font-size:14px;color:var(--line)}
 .foot a{color:var(--sand);font-weight:700;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:4px}
 .foot a:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
-.social{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 0;padding:0;list-style:none}
-.social a{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px 0 6px;border:1px solid rgba(225,223,211,.28);border-radius:999px;
-  text-decoration:none;font-size:14px;font-weight:700;color:var(--sand)}
-.social a:hover{border-color:var(--orange)}
-.social .ic{flex:none;width:32px;height:32px;border-radius:50%;background:var(--orange);color:var(--ink);display:grid;place-items:center}
-.social svg{width:17px;height:17px;display:block}
+.foot-in{gap:24px 48px}
+.foot-l,.foot-r{display:flex;flex-direction:column;gap:10px}
+.foot-r h2{margin:0;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.social{display:flex;gap:10px;margin:0;padding:0;list-style:none}
+.social a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(225,223,211,.3);color:var(--sand);text-decoration:none}
+.social a:hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.social svg{width:20px;height:20px;display:block}
+.mail{font-size:14px;font-weight:500!important}
 .wrap{max-width:520px;margin:0 auto;padding-top:28px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 48px);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
   display:flex;flex-direction:column;gap:20px}
@@ -102,7 +104,7 @@ h2{margin:0;font-size:18px;font-weight:800}
   #detail .howto{grid-area:howto;margin:0}
   #detail .links{grid-area:links;margin:0}
   h1{font-size:44px}
-  .foot-in{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 32px}
+  .foot-in{flex-direction:row;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:24px 48px}
 }
 @media (min-width:1000px){.list{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (prefers-reduced-motion:no-preference){.copy{transition:background .15s}}
@@ -181,14 +183,20 @@ h2{margin:0;font-size:18px;font-weight:800}
 
 <footer class="foot">
   <div class="foot-in">
-    <svg class="logo" viewBox="0 0 493.56 153.65" role="img" aria-label="GCC EU" fill="currentColor"><use href="#gcc"/></svg>
-    <p>Conferința Liderilor GCC 2026 · Biserica Sănătoasă</p>
-    <p><a href="https://conferinta.gccollective.eu" target="_blank" rel="noopener">conferinta.gccollective.eu ↗</a></p>
-    <ul class="social">
-      <li><a href="mailto:info@gccollective.eu"><span class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>info@gccollective.eu</a></li>
-      <li><a href="https://www.facebook.com/gcceurope/" target="_blank" rel="noopener"><span class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></svg></span>Facebook GCC EU</a></li>
-      <li><a href="https://gccollective.eu/" target="_blank" rel="noopener"><span class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.5 5.7 3.5 9s-1 6.3-3.5 9c-2.5-2.7-3.5-5.7-3.5-9S9.5 5.7 12 3z"/></svg></span>gccollective.eu</a></li>
-    </ul>
+    <div class="foot-l">
+      <svg class="logo" viewBox="0 0 493.56 153.65" role="img" aria-label="GCC EU" fill="currentColor"><use href="#gcc"/></svg>
+      <p>Conferința Liderilor GCC 2026 · Biserica Sănătoasă</p>
+      <p><a href="https://conferinta.gccollective.eu" target="_blank" rel="noopener">conferinta.gccollective.eu ↗</a></p>
+    </div>
+    <div class="foot-r">
+      <h2>Contact</h2>
+      <ul class="social">
+        <li><a href="mailto:info@gccollective.eu" title="E-mail" aria-label="E-mail: info@gccollective.eu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a></li>
+        <li><a href="https://www.facebook.com/gcceurope/" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook GCC EU"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" fill="currentColor"/></svg></a></li>
+        <li><a href="https://gccollective.eu/" target="_blank" rel="noopener" title="gccollective.eu" aria-label="Site GCC EU: gccollective.eu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a></li>
+      </ul>
+      <p><a class="mail" href="mailto:info@gccollective.eu">info@gccollective.eu</a></p>
+    </div>
   </div>
 </footer>
 
