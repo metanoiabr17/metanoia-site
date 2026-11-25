@@ -40,7 +40,7 @@ body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--font);fo
 .title{display:flex;align-items:center;gap:14px}
 .title img{flex:none;width:56px;height:56px;display:block}
 .title h1{font-size:clamp(38px,11vw,54px);line-height:1;font-weight:800;font-stretch:78%;letter-spacing:-.01em;text-transform:uppercase}
-.lede{margin:0;font-size:16px;line-height:1.45;max-width:36ch}
+.lede{margin:0;font-size:min(16px,calc((100vw - 32px) / 22.5));line-height:1.45;white-space:nowrap}
 .foot{background:var(--ink);color:var(--sand);
   padding-top:28px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 28px);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
