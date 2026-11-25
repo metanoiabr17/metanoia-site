@@ -107,6 +107,15 @@ h2{margin:0;font-size:18px;font-weight:800}
   .foot-in{flex-direction:row;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:24px 48px}
 }
 @media (min-width:1000px){.list{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid rgba(44,37,31,.15);border-bottom:1px solid rgba(44,37,31,.15);padding:18px 0;background:var(--sand)}
+.mq-track{display:inline-flex;animation:mq 60s linear infinite;will-change:transform}
+.mq-run{display:inline-flex}
+.mq-i{display:inline-block;padding:0 28px;font-size:clamp(16px,1.6vw,20px);font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ink)}
+.mq-i.g{color:#7B7368}
+.mq-dot{margin-left:28px;color:var(--orange)}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none}}
 @media (prefers-reduced-motion:no-preference){.copy{transition:background .15s}}
 </style>
 </head>
@@ -180,6 +189,11 @@ h2{margin:0;font-size:18px;font-weight:800}
     <div class="list" id="list"></div>
   </section>
 </main>
+
+<div class="marquee" role="region" aria-label="Valorile GCC EU">
+  <p class="sr-only">Integritatea Evangheliei · Conectare relațională · Grijă intențională · Aplicare contextualizată · Pluralitate sănătoasă · Accent pe Împărăție · Biserica Sănătoasă · GCC EU 2026</p>
+  <div class="mq-track" aria-hidden="true"><div class="mq-run"><span class="mq-i">Integritatea Evangheliei<span class="mq-dot">◦</span></span><span class="mq-i g">Conectare relațională<span class="mq-dot">◦</span></span><span class="mq-i">Grijă intențională<span class="mq-dot">◦</span></span><span class="mq-i g">Aplicare contextualizată<span class="mq-dot">◦</span></span><span class="mq-i">Pluralitate sănătoasă<span class="mq-dot">◦</span></span><span class="mq-i g">Accent pe Împărăție<span class="mq-dot">◦</span></span><span class="mq-i">Biserica Sănătoasă<span class="mq-dot">◦</span></span><span class="mq-i g">GCC EU 2026<span class="mq-dot">◦</span></span><span class="mq-i">Integritatea Evangheliei<span class="mq-dot">◦</span></span><span class="mq-i g">Conectare relațională<span class="mq-dot">◦</span></span><span class="mq-i">Grijă intențională<span class="mq-dot">◦</span></span><span class="mq-i g">Aplicare contextualizată<span class="mq-dot">◦</span></span><span class="mq-i">Pluralitate sănătoasă<span class="mq-dot">◦</span></span><span class="mq-i g">Accent pe Împărăție<span class="mq-dot">◦</span></span><span class="mq-i">Biserica Sănătoasă<span class="mq-dot">◦</span></span><span class="mq-i g">GCC EU 2026<span class="mq-dot">◦</span></span></div><div class="mq-run"><span class="mq-i">Integritatea Evangheliei<span class="mq-dot">◦</span></span><span class="mq-i g">Conectare relațională<span class="mq-dot">◦</span></span><span class="mq-i">Grijă intențională<span class="mq-dot">◦</span></span><span class="mq-i g">Aplicare contextualizată<span class="mq-dot">◦</span></span><span class="mq-i">Pluralitate sănătoasă<span class="mq-dot">◦</span></span><span class="mq-i g">Accent pe Împărăție<span class="mq-dot">◦</span></span><span class="mq-i">Biserica Sănătoasă<span class="mq-dot">◦</span></span><span class="mq-i g">GCC EU 2026<span class="mq-dot">◦</span></span><span class="mq-i">Integritatea Evangheliei<span class="mq-dot">◦</span></span><span class="mq-i g">Conectare relațională<span class="mq-dot">◦</span></span><span class="mq-i">Grijă intențională<span class="mq-dot">◦</span></span><span class="mq-i g">Aplicare contextualizată<span class="mq-dot">◦</span></span><span class="mq-i">Pluralitate sănătoasă<span class="mq-dot">◦</span></span><span class="mq-i g">Accent pe Împărăție<span class="mq-dot">◦</span></span><span class="mq-i">Biserica Sănătoasă<span class="mq-dot">◦</span></span><span class="mq-i g">GCC EU 2026<span class="mq-dot">◦</span></span></div></div>
+</div>
 
 <footer class="foot">
   <div class="foot-in">
