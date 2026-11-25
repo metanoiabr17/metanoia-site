@@ -2,62 +2,81 @@
 <html lang="ro">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}[hidden]{display:none!important}</style>
-<title>Plată cărți Magna Gratia</title>
+<meta name="theme-color" content="#E48322">
+<title>Plată cărți · Conferința GCC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout: one narrow column, the chosen book on top, then the three values to copy, then the steps */
+/* Culorile și fontul conferinței GCC EU (conferinta.gccollective.eu) */
 :root{
-  --bg:#f6f8f9; --surface:#ffffff; --fg:#141414; --muted:#4a5358; --line:#d5dde1;
-  --accent:#1d4f63; --accent-fg:#ffffff; --ok:#1f6b3a;
-  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --sand:#E1DFD3; --card:#ECEAE1; --ink:#2C251F; --muted:#6B6358; --line:#B8B2A5;
+  --orange:#E48322; --ok:#2E6B3A;
+  --font:"Aktiv Grotesk","Archivo",ui-sans-serif,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#11171a; --surface:#1a2226; --fg:#eef2f4; --muted:#a9b5bb; --line:#2d3a40;
-  --accent:#7cc0d8; --accent-fg:#0d1a20; --ok:#7fd39a; color-scheme:dark }}
-:root[data-theme="dark"]{
-  --bg:#11171a; --surface:#1a2226; --fg:#eef2f4; --muted:#a9b5bb; --line:#2d3a40;
-  --accent:#7cc0d8; --accent-fg:#0d1a20; --ok:#7fd39a; color-scheme:dark }
-body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.5}
-.wrap{max-width:520px;margin:0 auto;padding-block:24px 48px;
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--sand)}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+.bar{background:var(--ink);color:var(--sand);
+  padding-top:calc(env(safe-area-inset-top,0px) + 14px);padding-bottom:14px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.bar-in{max-width:520px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:block;height:34px;width:auto;color:var(--sand)}
+.bar small{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--line);text-align:right;line-height:1.3}
+.wrap{max-width:520px;margin:0 auto;padding-top:28px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 48px);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
   display:flex;flex-direction:column;gap:20px}
-.eyebrow{margin:0;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-h1{margin:0;font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
-.price{margin:0;font-size:40px;line-height:1;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.eyebrow{margin:0;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1{margin:0;font-size:32px;line-height:1.05;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+.price{margin:4px 0 0;display:inline-flex;align-self:flex-start;align-items:baseline;gap:6px;
+  background:var(--orange);color:var(--ink);border-radius:999px;padding:6px 16px;font-size:28px;line-height:1.1;font-weight:800;font-variant-numeric:tabular-nums}
+.price span{font-size:16px;font-weight:700}
 .head{display:flex;flex-direction:column;gap:8px}
 .fields{display:flex;flex-direction:column;gap:10px}
-.field{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 12px 12px 16px;
-  display:flex;align-items:center;gap:12px}
-.field .txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
-.label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.value{font-family:var(--mono);font-size:17px;font-weight:600;overflow-wrap:anywhere;user-select:all}
-.copy{flex:none;min-height:44px;min-width:96px;padding:0 14px;border-radius:10px;border:0;cursor:pointer;
-  background:var(--accent);color:var(--accent-fg);font:600 15px var(--sans)}
-.copy.done{background:var(--ok)}
-.copy:focus-visible,.book:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;color:var(--fg)}
-.steps li::marker{color:var(--accent);font-weight:700}
-h2{margin:0;font-size:16px;font-weight:700}
-.list{display:grid;grid-template-columns:1fr;gap:8px}
-.book{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;padding:10px 16px;
-  background:var(--surface);border:1px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;font-weight:600}
-.book span:last-child{color:var(--accent);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
-.back{color:var(--accent);font-weight:600}
+.field{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 12px 12px 16px;display:flex;align-items:center;gap:12px}
+.txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.value{font-size:17px;font-weight:700;overflow-wrap:anywhere;user-select:all;font-variant-numeric:tabular-nums}
+.copy{flex:none;min-height:44px;min-width:100px;padding:0 16px;border-radius:999px;border:0;cursor:pointer;
+  background:var(--ink);color:var(--sand);font:800 15px var(--font)}
+.copy.done{background:var(--ok);color:#fff}
+.copy:focus-visible,.book:focus-visible,.back:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+h2{margin:0;font-size:18px;font-weight:800}
+.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.steps li::marker{color:var(--ink);font-weight:800}
+.list{display:grid;gap:8px}
+.book{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:52px;padding:10px 12px 10px 16px;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;color:var(--ink);text-decoration:none;font-weight:700}
+.book .pr{flex:none;background:var(--orange);color:var(--ink);border-radius:999px;padding:4px 12px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+.back{color:var(--ink);font-weight:700;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:4px}
 @media (prefers-reduced-motion:no-preference){.copy{transition:background .15s}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<header class="bar">
+  <div class="bar-in">
+    <svg class="logo" viewBox="0 0 493.56 153.65" role="img" aria-label="GCC EU" fill="currentColor">
+      <path d="M76.91,56.5c9.17,0,16.96,6.1,19.47,14.44h9.26c-2.730-13.370-14.570-23.430-28.750-23.430-16.2,0-29.340,13.120-29.340,29.300s13.140,29.300,29.340,29.300c14.370,0,26.330-10.310,28.830-23.940h-9.170c-2.330,8.630-10.240,14.970-19.640,14.970-11.250,0-20.370-9.100-20.370-20.340s9.110-20.310,20.370-20.310h0ZM118.74,91.17h24.73c-.68,3.09-1.55,6.1-2.62,9.02-9.540,26.040-34.570,44.620-63.940,44.620-37.580,0-68.080-30.430-68.080-67.990S39.330,8.820,76.910,8.820c35.610,0,64.840,27.310,67.820,62.120h8.860C150.580,31.270,119.390,0,76.910,0S0,34.390,0,76.810s34.430,76.810,76.940,76.840c34.320,0,63.380-22.450,73.280-53.440.93-2.920,1.690-5.960,2.280-9.020.56-2.950.96-5.960,1.150-9.020v-.03h-32.830c-.39,3.120-1.070,6.120-2.080,9.020h0ZM120.74,70.97h9.030c-2.930-26.580-25.490-47.230-52.860-47.230-29.370,0-53.200,23.770-53.200,53.100s23.830,53.130,53.200,53.130c20.090,0,37.580-11.130,46.610-27.560h-10.550c-8.020,11.270-21.180,18.600-36.060,18.600-24.420,0-44.220-19.780-44.220-44.170s19.800-44.170,44.220-44.170c22.420,0,40.930,16.660,43.830,38.290h0Z"/>
+      <path d="M248.17,77.59c0-1.24-.25-2.07-.77-2.46-.27-.22-.99-.32-2.14-.32h-19.47c-1.27,0-2.07.16-2.38.49s-.49,1.12-.49,2.38v3.59c0,1.24.16,2.02.49,2.35.35.35,1.15.53,2.38.53h10.1c-.27,2.26-.99,4.19-2.14,5.77-2.82,3.93-6.94,5.89-12.31,5.89-4.68,0-8.71-1.52-12.07-4.56-4.010-3.600-6.020-8.340-6.020-14.210,0-5.430,1.650-9.950,4.960-13.520,3.470-3.790,7.870-5.700,13.160-5.700,2.320,0,4.630.49,6.970,1.480s4.060,2.210,5.200,3.690c1.020,1.270,1.640,2.010,1.860,2.210.22.220.5.320.84.320.3,0,.92-.25,1.860-.77l4.440-2.420c.84-.43,1.360-.77,1.580-1,.22-.24.32-.58.32-1,0-.62-.55-1.580-1.640-2.860s-2.380-2.520-3.850-3.670c-4.960-3.850-10.770-5.770-17.490-5.770-7.510,0-13.950,2.230-19.300,6.700-6.640,5.580-9.980,13.020-9.980,22.330,0,7.220,2.170,13.420,6.490,18.610,5.580,6.640,13.060,9.980,22.490,9.980,5.760,0,10.730-1.340,14.890-4.040,3.960-2.550,6.980-6.040,9.090-10.420,1.930-4.010,2.910-8.530,2.910-13.560h.01Z"/>
+      <path d="M303.24,50.75c-3.660-1.830-7.700-2.750-12.120-2.750-5.090,0-9.840,1.210-14.260,3.630-4.740,2.640-8.440,6.290-11.100,10.940-2.550,4.470-3.840,9.310-3.840,14.540,0,4.840,1.110,9.310,3.310,13.400,2.610,4.870,6.420,8.680,11.420,11.420,4.470,2.450,9.250,3.670,14.380,3.670,4.040,0,8.100-.87,12.190-2.630.32-.13.55-.27.69-.4.27-.24.44-.49.5-.75.07-.25.1-.81.1-1.680v-5.580c0-1.900-.38-2.860-1.170-2.860-.27,0-.61.15-1,.44-1.800,1.300-3.590,2.210-5.340,2.790-1.760.56-3.730.84-5.920.84-4.580,0-8.620-1.560-12.120-4.680-3.980-3.530-5.980-8.220-5.980-14.090,0-4.970,1.450-9.220,4.350-12.720,3.590-4.340,8.280-6.490,14.090-6.490,3.280,0,6.200.84,8.770,2.540,1.760,1.150,2.770,1.740,3.070,1.740.84,0,1.250-.94,1.250-2.820v-5.650c0-1.050-.06-1.710-.18-1.980s-.49-.56-1.110-.89h-.01Z"/>
+      <path d="M347.84,57.82c3.28,0,6.2.84,8.77,2.54,1.76,1.15,2.77,1.74,3.07,1.74.84,0,1.25-.94,1.25-2.82v-5.65c0-1.05-.06-1.71-.18-1.98s-.49-.56-1.11-.89c-3.660-1.830-7.700-2.750-12.120-2.750-5.090,0-9.840,1.210-14.260,3.630-4.740,2.640-8.440,6.290-11.100,10.940-2.550,4.470-3.840,9.310-3.840,14.540,0,4.840,1.110,9.310,3.310,13.400,2.610,4.870,6.420,8.680,11.420,11.420,4.470,2.450,9.250,3.670,14.380,3.670,4.040,0,8.100-.87,12.190-2.630.32-.13.55-.27.69-.4.27-.24.44-.49.5-.75.07-.25.1-.81.1-1.680v-5.580c0-1.900-.38-2.860-1.170-2.860-.27,0-.61.15-1,.44-1.800,1.300-3.590,2.210-5.340,2.790-1.760.56-3.730.84-5.920.84-4.580,0-8.620-1.560-12.120-4.680-3.980-3.530-5.980-8.220-5.980-14.090,0-4.970,1.450-9.220,4.350-12.720,3.590-4.340,8.280-6.490,14.090-6.490h-.01Z"/>
+      <path d="M429.41,48.56h-24.82c-1.27,0-2.07.16-2.38.49s-.49,1.12-.49,2.38v49.38c0,1.27.16,2.07.49,2.38s1.12.49,2.38.49h24.82c1.24,0,2.02-.16,2.35-.49s.49-1.12.49-2.38v-3.59c0-1.27-.16-2.07-.49-2.38-.32-.32-1.11-.49-2.35-.49h-16.96v-14.89h16.15c1.27,0,2.07-.16,2.38-.49.32-.32.49-1.12.49-2.38v-3.59c0-1.27-.16-2.07-.49-2.38-.32-.32-1.12-.49-2.38-.49h-16.15v-12.24h16.96c1.24,0,2.02-.16,2.35-.49s.49-1.12.49-2.38v-3.59c0-1.24-.16-2.02-.49-2.35-.35-.35-1.14-.53-2.35-.53v-.03Z"/>
+      <path d="M490.69,48.56h-5.05c-1.24,0-2.02.16-2.35.49s-.49,1.12-.49,2.38v28.66c0,2.82-.12,4.89-.34,6.15-.24,1.28-.69,2.52-1.39,3.73-.94,1.59-2.27,2.83-4,3.75-1.73.92-3.62,1.37-5.7,1.37s-3.97-.46-5.7-1.37-3.06-2.17-4-3.75c-.69-1.21-1.17-2.45-1.39-3.73-.24-1.28-.34-3.34-.34-6.15v-28.66c0-1.27-.16-2.07-.49-2.38-.32-.32-1.11-.49-2.35-.49h-5.05c-1.27,0-2.07.16-2.38.49s-.49,1.12-.49,2.38v30.8c0,3.31.32,6.12.97,8.44,1.24,4.5,3.81,8.01,7.72,10.54,3.88,2.48,8.37,3.72,13.49,3.72,3.39,0,6.64-.61,9.73-1.82,3.53-1.37,6.33-3.42,8.4-6.14,2.69-3.53,4.04-8.44,4.04-14.74v-30.8c0-1.27-.16-2.07-.49-2.38s-1.12-.49-2.38-.49h-.01Z"/>
+    </svg>
+    <small>Conferința Liderilor<br>GCC 2026</small>
+  </div>
+</header>
+
+<main class="wrap">
   <section id="detail" hidden>
     <div class="head">
-      <p class="eyebrow">Conferință · plată prin transfer</p>
+      <p class="eyebrow">Cărți Magna Gratia · plată prin transfer</p>
       <h1 id="d-title">Carte</h1>
-      <p class="price" id="d-price">0 lei</p>
+      <p class="price"><b id="d-price">0</b><span>lei</span></p>
     </div>
     <div class="fields" style="margin-top:20px">
       <div class="field" id="f-benef" hidden>
@@ -90,13 +109,13 @@ h2{margin:0;font-size:16px;font-weight:700}
 
   <section id="all">
     <div class="head">
-      <p class="eyebrow">Conferință · plată prin transfer</p>
+      <p class="eyebrow">Plată prin transfer</p>
       <h1>Cărți Magna Gratia</h1>
       <p style="margin:0;color:var(--muted)">Alege cartea pe care o cumperi ca să vezi datele de plată.</p>
     </div>
     <div class="list" id="list" style="margin-top:20px"></div>
   </section>
-</div>
+</main>
 
 <script>
 const IBAN = "RO75 RNCB 0048 1694 8429 0011";
@@ -127,7 +146,7 @@ BOOKS.forEach(([slug,title,price]) => {
   const a = document.createElement("a");
   a.className = "book"; a.href = "#" + slug;
   const t = document.createElement("span"); t.textContent = title;
-  const p = document.createElement("span"); p.textContent = price + " lei";
+  const p = document.createElement("span"); p.className = "pr"; p.textContent = price + " lei";
   a.append(t,p); list.append(a);
 });
 
@@ -137,7 +156,7 @@ function show(){
   $("detail").hidden = !b; $("all").hidden = !!b;
   if (!b) return;
   $("d-title").textContent = b[1];
-  $("d-price").textContent = b[2] + " lei";
+  $("d-price").textContent = b[2];
   $("v-iban").textContent = IBAN;
   $("v-sum").textContent = String(b[2]);
   $("v-det").textContent = plain(b[1]);
