@@ -28,7 +28,7 @@ body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--font);fo
 .ring{position:absolute;z-index:0;top:-40px;right:-110px;width:300px;height:300px;color:var(--ink);opacity:.13;pointer-events:none}
 .hero-in>*{position:relative;z-index:1}
 .hero-in>.ring{position:absolute;z-index:0}
-.is-detail .lede,.is-detail .facts{display:none}
+.is-detail .lede{display:none}
 .is-detail .title h1{font-size:clamp(30px,9vw,40px)}
 .is-detail .title img{width:44px;height:44px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -41,11 +41,6 @@ body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--font);fo
 .title img{flex:none;width:56px;height:56px;display:block}
 .title h1{font-size:clamp(38px,11vw,54px);line-height:1;font-weight:800;font-stretch:78%;letter-spacing:-.01em;text-transform:uppercase}
 .lede{margin:0;font-size:16px;line-height:1.45;max-width:36ch}
-.facts{margin:4px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;border-top:2px solid var(--ink);padding-top:12px}
-.facts div{display:flex;flex-direction:column;gap:2px;min-width:0}
-.facts dt{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.facts dd{margin:0;font-size:17px;line-height:1.2;font-weight:800}
-.facts small{font-size:13px;font-weight:500}
 .foot{background:var(--ink);color:var(--sand);
   padding-top:28px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 28px);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -106,10 +101,6 @@ h2{margin:0;font-size:18px;font-weight:800}
     <p class="dash">Conferința Liderilor GCC 2026</p>
     <div class="title"><img src="assets/magna-gratia-logo.png" alt="Logo Magna Gratia" width="56" height="56"><h1>Cărți<br>Magna Gratia</h1></div>
     <p class="lede">Cărțile de la masa conferinței. Plătești prin transfer, direct din aplicația băncii tale.</p>
-    <dl class="facts">
-      <div><dt>Când</dt><dd>30 Noi – 2 Dec</dd><small>Luni – Miercuri</small></div>
-      <div><dt>Unde</dt><dd>Bucharest Events Center</dd><small>Domnești, jud. Ilfov</small></div>
-    </dl>
   </div>
 </header>
 
