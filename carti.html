@@ -75,6 +75,30 @@ h2{margin:0;font-size:18px;font-weight:800}
   background:var(--card);border:1px solid var(--line);border-radius:16px;color:var(--ink);text-decoration:none;font-weight:700}
 .book .pr{flex:none;background:var(--orange);color:var(--ink);border-radius:999px;padding:4px 12px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
 .back{color:var(--ink);font-weight:700;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:4px}
+#detail{display:flex;flex-direction:column;gap:20px}
+.howto{margin-top:4px;display:flex;flex-direction:column;gap:10px}
+.links{margin:4px 0 0;display:flex;flex-wrap:wrap;gap:12px 24px}
+#all{display:flex;flex-direction:column;gap:16px}
+@media (min-width:860px){
+  .hero-in,.wrap,.foot-in{max-width:1040px}
+  .hero{padding-top:calc(env(safe-area-inset-top,0px) + 28px);padding-bottom:36px}
+  .ring{width:480px;height:480px;top:-90px;right:-40px}
+  .title img{width:76px;height:76px}
+  .title h1{font-size:76px}
+  .is-detail .title img{width:56px;height:56px}
+  .is-detail .title h1{font-size:48px}
+  .wrap{padding-top:40px}
+  .list{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  #detail:not([hidden]){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px 56px;align-items:start;
+    grid-template-areas:"head fields" "howto fields" "links fields"}
+  #detail .head{grid-area:head}
+  #detail .fields{grid-area:fields}
+  #detail .howto{grid-area:howto;margin:0}
+  #detail .links{grid-area:links;margin:0}
+  h1{font-size:44px}
+  .foot-in{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 32px}
+}
+@media (min-width:1000px){.list{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (prefers-reduced-motion:no-preference){.copy{transition:background .15s}}
 </style>
 </head>
@@ -111,7 +135,7 @@ h2{margin:0;font-size:18px;font-weight:800}
       <h1 id="d-title">Carte</h1>
       <p class="price"><b id="d-price">0</b><span>lei</span></p>
     </div>
-    <div class="fields" style="margin-top:20px">
+    <div class="fields">
       <div class="field" id="f-benef" hidden>
         <div class="txt"><span class="label">Beneficiar</span><span class="value" id="v-benef"></span></div>
         <button class="copy" type="button" id="c-benef" data-src="v-benef">Copiază</button>
@@ -129,7 +153,7 @@ h2{margin:0;font-size:18px;font-weight:800}
         <button class="copy" type="button" id="c-det" data-src="v-det">Copiază</button>
       </div>
     </div>
-    <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px">
+    <div class="howto">
       <h2>Cum plătești</h2>
       <ol class="steps">
         <li>Deschide aplicația băncii tale și alege transfer nou.</li>
@@ -137,7 +161,7 @@ h2{margin:0;font-size:18px;font-weight:800}
         <li>Trimite plata și arată confirmarea la masa cu cărți.</li>
       </ol>
     </div>
-    <p style="margin:24px 0 0;display:flex;flex-wrap:wrap;gap:12px 24px"><a class="back" href="#">Toate cărțile</a><a class="back" id="d-more" href="https://www.magnagratia.org/carti/" target="_blank" rel="noopener">Vezi cartea pe magnagratia.org ↗</a></p>
+    <p class="links"><a class="back" href="#">Toate cărțile</a><a class="back" id="d-more" href="https://www.magnagratia.org/carti/" target="_blank" rel="noopener">Vezi cartea pe magnagratia.org ↗</a></p>
   </section>
 
   <section id="all">
@@ -145,7 +169,7 @@ h2{margin:0;font-size:18px;font-weight:800}
       <h2>Alege cartea</h2>
       <p style="margin:0;color:var(--muted)">Atinge cartea pe care o cumperi ca să vezi datele de plată.</p>
     </div>
-    <div class="list" id="list" style="margin-top:16px"></div>
+    <div class="list" id="list"></div>
   </section>
 </main>
 
