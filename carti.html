@@ -104,7 +104,7 @@ h2{margin:0;font-size:18px;font-weight:800}
         <li>Trimite plata și arată confirmarea la masa cu cărți.</li>
       </ol>
     </div>
-    <p style="margin:24px 0 0"><a class="back" href="#">Toate cărțile</a></p>
+    <p style="margin:24px 0 0;display:flex;flex-wrap:wrap;gap:12px 24px"><a class="back" href="#">Toate cărțile</a><a class="back" id="d-more" href="https://www.magnagratia.org/carti/" target="_blank" rel="noopener">Vezi cartea pe magnagratia.org ↗</a></p>
   </section>
 
   <section id="all">
@@ -121,22 +121,22 @@ h2{margin:0;font-size:18px;font-weight:800}
 const IBAN = "RO75 RNCB 0048 1694 8429 0011";
 const BENEFICIAR = "ASOCIATIA GCC EU";
 const BOOKS = [
-  ["sfaturi-pentru-tineri","Sfaturi pentru tineri",20],
-  ["inchinarea-in-familie","Închinarea în familie",20],
-  ["teologia-familiei-1","O teologie a familiei I",35],
-  ["teologia-familiei-2","O teologie a familiei II",35],
-  ["legea-lui-cristos","Legea lui Cristos",25],
-  ["ce-este-evanghelia","Ce este Evanghelia",20],
-  ["emanuel","Emanuel",20],
-  ["un-singur-plan","Un singur plan",25],
-  ["cine-este-isus","Cine este Isus",20],
-  ["roaga-te-biblia","Roagă-te Biblia",20],
-  ["nu-ti-risipi-viata","Nu-ți risipi viața",20],
-  ["ticalosia-pacatului","Ticăloșia păcatului",25],
-  ["cresterea-spirituala","Creșterea spirituală",25],
-  ["chiar-daca-nimeni","Chiar dacă nimeni",20],
-  ["sunt-chemat","Sunt chemat",25],
-  ["predica-ta-din-vt","Predica ta din VT",25]
+  ["sfaturi-pentru-tineri","Sfaturi pentru tineri",20,"https://www.magnagratia.org/carti/091-sfaturi-pentru-tineri-jcryle/"],
+  ["inchinarea-in-familie","Închinarea în familie",20,"https://www.magnagratia.org/carti/053-inchinarea-familie-james-alexander/"],
+  ["teologia-familiei-1","O teologie a familiei I",35,"https://www.magnagratia.org/carti/367-o-teologie-a-familiei/"],
+  ["teologia-familiei-2","O teologie a familiei II",35,"https://www.magnagratia.org/carti/367-o-teologie-a-familiei/"],
+  ["legea-lui-cristos","Legea lui Cristos",25,"https://www.magnagratia.org/carti/005-legea-lui-hristos-charles-leiter/"],
+  ["ce-este-evanghelia","Ce este Evanghelia",20,"https://www.magnagratia.org/carti/151-gospel-gilbert/"],
+  ["emanuel","Emanuel",20,"https://www.magnagratia.org/carti/162-emanuel-pink/"],
+  ["un-singur-plan","Un singur plan",25,"https://www.magnagratia.org/carti/190-un-singur-plan-edwards/"],
+  ["cine-este-isus","Cine este Isus",20,"https://www.magnagratia.org/carti/207-cine-este-isus-gilbert/"],
+  ["roaga-te-biblia","Roagă-te Biblia",20,"https://www.magnagratia.org/carti/045-roaga-te-biblia-matthew-henry/"],
+  ["nu-ti-risipi-viata","Nu-ți risipi viața",20,"https://www.magnagratia.org/carti/277-nu-ti-risipi-viata-john-piper/"],
+  ["ticalosia-pacatului","Ticăloșia păcatului",25,"https://www.magnagratia.org/carti/290-mischief-of-sin-thomas-watson/"],
+  ["cresterea-spirituala","Creșterea spirituală",25,"https://www.magnagratia.org/carti/169-cresterea-spirituala-pink/"],
+  ["chiar-daca-nimeni","Chiar dacă nimeni",20,"https://www.magnagratia.org/carti/205-chiar-daca-nimeni-ryan-denton/"],
+  ["sunt-chemat","Sunt chemat",25,"https://www.magnagratia.org/carti/076-sunt-chemat-dave-harvey/"],
+  ["predica-ta-din-vt","Predica ta din VT",25,"https://www.magnagratia.org/carti/226-your-sermon-david-king-romanian/"]
 ];
 const plain = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"");
 const $ = id => document.getElementById(id);
@@ -157,6 +157,7 @@ function show(){
   if (!b) return;
   $("d-title").textContent = b[1];
   $("d-price").textContent = b[2];
+  $("d-more").href = b[3];
   $("v-iban").textContent = IBAN;
   $("v-sum").textContent = String(b[2]);
   $("v-det").textContent = plain(b[1]);
